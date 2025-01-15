@@ -39,13 +39,14 @@ const getUserByIdHandler = (req, res) => {
   res.end();
 };
 
-// Route handler for POST /api/users
+// route handler for POST /api/users
 const createUserHandler = (req, res) => {
   let body = "";
   // Listen for data
   req.on("data", (chunk) => {
     body += chunk.toString();
   });
+
   req.on("end", () => {
     const newUser = JSON.parse(body);
     users.push(newUser);
